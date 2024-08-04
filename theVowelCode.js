@@ -48,3 +48,32 @@ function decode(str) {
     }
     return decodedString
 }
+
+//solution using forEach
+function encode(str) {
+    const vowelToNumber = { 'a': '1', 'e': '2', 'i': '3', 'o': '4', 'u': '5' };
+    let encodedString = ''
+    str.split('').forEach(char => {
+    encodedString += vowelToNumber[char] || char
+    })
+    return encodedString
+}
+
+function decode (str) {
+    const numberToVowel = {'1': 'a', '2': 'e', '3': 'i', '4': 'o', '5': 'u'}
+    let decodedString = ''
+    str.split('').forEach(char => {
+        decodedString += numberToVowel[char] || char
+    })
+    return decodedString
+}
+
+//solution using charAt and indexOf
+function encode(string){
+    return string.replace(/[aeiou]/g, function (x) { return '_aeiou'.indexOf(x) });
+  }
+  
+  //turn numbers back into vowels
+  function decode(string){
+    return string.replace(/[1-5]/g, function (x) { return '_aeiou'.charAt(x) });
+  }
