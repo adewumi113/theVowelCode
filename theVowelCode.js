@@ -28,3 +28,23 @@ function decode(text) {
 }
 encodeVowel('hello') //h2ll4
 
+//solution using for loop
+function encode(str) {
+    const vowelToNumber = { 'a': '1', 'e': '2', 'i': '3', 'o': '4', 'u': '5' };
+    let encodedString = ''
+    for (let i=0; i<str.length; i++){
+        const char = str[i];
+        encodedString += vowelToNumber[char] || char
+    }
+    return encodedString
+}
+
+function decode(str) {
+    const numberToVowel = { '1': 'a', '2': 'e', '3': 'i', '4': 'o', '5': 'u' };
+    let decodedString = ''
+    for (let i=0; i<str.length; i++){
+        const char = str[i];
+        decodedString += numberToVowel[char] || char
+    }
+    return decodedString
+}
